@@ -16,7 +16,6 @@ class ResponseFactory implements ResponseFactoryInterface
      * @param string $path
      * @return Response
      * @throws \League\Flysystem\FileNotFoundException
-     * @author Byron Sampson <xiaobo.sun@qq.com>
      */
     public function create(FilesystemInterface $cache, $path)
     {
