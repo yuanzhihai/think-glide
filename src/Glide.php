@@ -63,7 +63,7 @@ class Glide
      * @param Request $request
      * @param $next
      * @return mixed
-     * @author Byron Sampson <xiaobo.sun@qq.com>
+     * @author By yzh52521 <396751927@qq.com>
      */
     public function __invoke($request, $next)
     {
@@ -92,7 +92,7 @@ class Glide
      * @return Response
      * @throws \League\Flysystem\FileNotFoundException
      * @throws \League\Glide\Filesystem\FileNotFoundException
-     * @author Byron Sampson <xiaobo.sun@qq.com>
+     * @author By yzh52521 <396751927@qq.com>
      */
     protected function handleRequest(Server $server, Request $request)
     {
@@ -120,6 +120,7 @@ class Glide
      * @param Response $response
      * @param $modifiedTime
      * @return Response
+     * @author By yzh52521 <396751927@qq.com>
      */
     protected function applyCacheHeaders(Response $response, $modifiedTime)
     {
@@ -140,7 +141,7 @@ class Glide
      * @param int $modifiedTime
      * @param Request $request
      * @return false|Response
-     * @author Byron Sampson <xiaobo.sun@qq.com>
+     * @author By yzh52521 <396751927@qq.com>
      */
     protected function applyModified($modifiedTime, Request $request)
     {
@@ -156,7 +157,7 @@ class Glide
      * @param Request $request
      * @param $modifiedTime
      * @return bool
-     * @author Byron Sampson <xiaobo.sun@qq.com>
+     * @author By yzh52521 <396751927@qq.com>
      */
     protected function isNotModified(Request $request, $modifiedTime)
     {
@@ -184,7 +185,7 @@ class Glide
 
     /**
      * @return \League\Glide\Server
-     * @author Byron Sampson <xiaobo.sun@qq.com>
+     * @author  By yzh52521 <396751927@qq.com>
      */
     protected function createGlideServer()
     {
