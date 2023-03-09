@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace think\glide;
 
-use League\Flysystem\FilesystemInterface;
+use League\Flysystem\FilesystemOperator;
 use League\Glide\Responses\ResponseFactoryInterface;
 use think\Response;
 
@@ -12,15 +12,14 @@ class ResponseFactory implements ResponseFactoryInterface
 {
     /**
      * Create response
-     * @param FilesystemInterface $cache
+     * @param FilesystemOperator $cache
      * @param string $path
      * @return Response
-     * @throws \League\Flysystem\FileNotFoundException
      */
-    public function create(FilesystemInterface $cache, $path)
+    public function create(FilesystemOperator $cache, $path)
     {
-        $contentType   = $cache->getMimetype($path);
-        $contentLength = $cache->getSize($path);
+        $contentType   = $cache->mimeType($path);
+        $contentLength = $cache->fileSize($path);
 
         return Response::create()->data(stream_get_contents($cache->readStream($path)))
             ->header(

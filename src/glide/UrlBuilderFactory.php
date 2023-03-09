@@ -27,10 +27,10 @@ class UrlBuilderFactory
 
     /**
      * Create UrlBuilder instance.
-     * @param string                  $baseUrl   The base URL.
+     * @param string $baseUrl   The base URL.
      * @param SignatureInterface|null $signature The HTTP signature used to sign URLs.
      */
-    public function __construct($baseUrl = '', SignatureInterface $signature = null)
+    public function __construct(string $baseUrl = '',SignatureInterface $signature = null)
     {
         $this->setBaseUrl($baseUrl);
         $this->setSignature($signature);
@@ -40,7 +40,7 @@ class UrlBuilderFactory
      * Set the base URL.
      * @param string $baseUrl The base URL.
      */
-    public function setBaseUrl($baseUrl)
+    public function setBaseUrl(string $baseUrl)
     {
         if (substr($baseUrl, 0, 2) === '//') {
             $baseUrl = 'http:'.$baseUrl;
@@ -61,11 +61,11 @@ class UrlBuilderFactory
 
     /**
      * Get the URL.
-     * @param  string $path   The resource path.
+     * @param string $path   The resource path.
      * @param  array  $params The manipulation parameters.
      * @return string The URL.
      */
-    public function getUrl($path, array $params = [])
+    public function getUrl(string $path,array $params = [])
     {
         $parts = parse_url($this->baseUrl.'/'.trim($path, '/'));
 
@@ -84,11 +84,11 @@ class UrlBuilderFactory
 
     /**
      * Build the URL.
-     * @param  array  $parts  The URL parts.
-     * @param  array  $params The manipulation parameters.
+     * @param array $parts  The URL parts.
+     * @param array $params The manipulation parameters.
      * @return string The built URL.
      */
-    protected function buildUrl($parts, $params)
+    protected function buildUrl(array $parts,array $params)
     {
         $url = '';
 
@@ -115,11 +115,11 @@ class UrlBuilderFactory
 
     /**
      * Create UrlBuilder instance.
-     * @param  string      $baseUrl URL prefixed to generated URL.
-     * @param  string|null $signKey Secret key used to secure URLs.
+     * @param string $baseUrl URL prefixed to generated URL.
+     * @param string|null $signKey Secret key used to secure URLs.
      * @return UrlBuilderFactory  The UrlBuilder instance.
      */
-    public static function create($baseUrl, $signKey = null)
+    public static function create(string $baseUrl,string $signKey = null)
     {
         $httpSignature = null;
 

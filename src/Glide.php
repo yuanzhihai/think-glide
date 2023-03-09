@@ -90,7 +90,6 @@ class Glide
      * @param Server $server
      * @param Request $request
      * @return Response
-     * @throws \League\Flysystem\FileNotFoundException
      * @throws \League\Glide\Filesystem\FileNotFoundException
      * @author By yzh52521 <396751927@qq.com>
      */
@@ -99,8 +98,7 @@ class Glide
         //检查是否重新更新了
         $modifiedTime = null;
         if ($this->options['cacheTime']) {
-            $modifiedTime = $server->getSource()
-                ->getTimestamp($server->getSourcePath($request->pathinfo()));
+            $modifiedTime = $server->getSource()->lastModified($server->getSourcePath($request->pathinfo()));
             $response     = $this->applyModified($modifiedTime, $request);
             if (false !== $response) {
                 return $response;
@@ -143,7 +141,7 @@ class Glide
      * @return false|Response
      * @author By yzh52521 <396751927@qq.com>
      */
-    protected function applyModified($modifiedTime, Request $request)
+    protected function applyModified(int $modifiedTime,Request $request)
     {
         //如果没有修改直接返回
         if ($this->isNotModified($request, $modifiedTime)) {

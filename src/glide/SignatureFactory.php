@@ -19,7 +19,7 @@ class SignatureFactory implements SignatureInterface
      * Create Signature instance.
      * @param string $signKey Secret key used to generate signature.
      */
-    public function __construct($signKey)
+    public function __construct(string $signKey)
     {
         $this->signKey = $signKey;
     }
@@ -58,7 +58,7 @@ class SignatureFactory implements SignatureInterface
      * @param array $params The manipulation parameters.
      * @return string The generated HTTP signature.
      */
-    public function generateSignature($path, array $params)
+    public function generateSignature(string $path,array $params)
     {
         unset($params['sign']);
         ksort($params);
@@ -71,7 +71,7 @@ class SignatureFactory implements SignatureInterface
      * @param string $signKey Secret key used to generate signature.
      * @return SignatureFactory The HttpSignature instance.
      */
-    public static function create($signKey)
+    public static function create(string $signKey)
     {
         return new self($signKey);
     }
