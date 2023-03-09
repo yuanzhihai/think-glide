@@ -119,7 +119,7 @@ class UrlBuilderFactory
      * @param string|null $signKey Secret key used to secure URLs.
      * @return UrlBuilderFactory  The UrlBuilder instance.
      */
-    public static function create(string $baseUrl,string $signKey = null)
+    public static function create(string $baseUrl,$signKey = null)
     {
         $httpSignature = null;
 
