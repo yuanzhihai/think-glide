@@ -106,7 +106,7 @@ location ~* /images/(.*)$ {
 
 不止支持裁剪，glide还支持其它操作，只要传递对应参数即可，参考这里查看支持的参数：
 
-[http://glide.thephpleague.com/1.0/api/quick-reference/](http://glide.thephpleague.com/1.0/api/quick-reference/)
+[http://glide.thephpleague.com/2.0/api/quick-reference/](http://glide.thephpleague.com/2.0/api/quick-reference/)
 
 ## License
 
